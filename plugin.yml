@@ -1,0 +1,7 @@
+name: MafiBox
+main: de.mafi.MafiBox.Main
+author: Mafima
+version: 1.0
+commands:
+    mafibox:
+        aliases: [geschenk,box]

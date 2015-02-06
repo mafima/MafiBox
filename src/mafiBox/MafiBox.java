@@ -6,6 +6,10 @@
 package mafiBox;
 
 import java.util.Arrays;
+import java.util.Random;
+import mafiBox.listener.HandleBox;
+import net.milkbowl.vault.economy.Economy;
+import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -14,11 +18,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  *
- * @author Manuel
+ * @author Manuel, Cobra_8
  */
 public class MafiBox extends JavaPlugin {
 
@@ -26,13 +31,18 @@ public class MafiBox extends JavaPlugin {
     public static final String prefix = "§8[§6Mafi§cBox§8]§r ";
     public static final String boxprefix = "§a§l- §oMafiBox §a§l-";
 
+    public static final Random random = new Random();
+
+    public static final RegisteredServiceProvider<Economy> provider = Bukkit.getServer().getServicesManager().getRegistration(Economy.class);
+    public static final Economy economy = provider.getProvider();
+
     public static ItemStack item;
 
     @Override
     public void onEnable() {
-
         setupItemStack();
-        this.getServer().getPluginManager().registerEvents(new ClickListener(), this);
+
+        this.getServer().getPluginManager().registerEvents(new HandleBox(), this);
     }
 
     @Override

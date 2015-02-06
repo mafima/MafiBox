@@ -1,6 +1,6 @@
 name: MafiBox
-main: de.mafi.MafiBox.Main
-author: Mafima
+main: me.Cobra_8.MafiBox
+author: Mafima, Cobra_8
 version: 1.0
 commands:
     mafibox:

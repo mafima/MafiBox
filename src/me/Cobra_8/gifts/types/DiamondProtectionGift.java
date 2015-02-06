@@ -1,8 +1,9 @@
-package mafiBox.gifts;
+package me.Cobra_8.gifts.types;
 
 import java.util.ArrayList;
 import java.util.List;
-import mafiBox.MafiBox;
+import me.Cobra_8.MafiBox;
+import me.Cobra_8.gifts.Gift;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -27,15 +28,17 @@ public class DiamondProtectionGift extends Gift {
         protections.add(Material.DIAMOND_LEGGINGS);
         protections.add(Material.DIAMOND_BOOTS);
 
-        ItemStack gift = new ItemStack(protections.get(MafiBox.random.nextInt(protections.size())));
-        ItemMeta giftMeta = gift.getItemMeta();
-        giftMeta.setDisplayName(MafiBox.boxprefix);
-        gift.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
-        gift.setItemMeta(giftMeta);
+        ItemStack stack = new ItemStack(protections.get(MafiBox.random.nextInt(protections.size())));
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(MafiBox.itemprefix);
+        meta.setLore(MafiBox.itemlore);
+        stack.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+        stack.setItemMeta(meta);
 
-        getPlayer().getInventory().addItem(gift);
+        getPlayer().getInventory().addItem(stack);
+        getPlayer().updateInventory();
 
-        getPlayer().sendMessage(MafiBox.prefix + "§6Du hast ein Diamantschutz erhalten !");
+        getPlayer().sendMessage(MafiBox.prefix + "§6Du hast ein Diamantschutz gewonnen !");
 
     }
 

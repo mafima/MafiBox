@@ -1,4 +1,4 @@
-package mafiBox.gifts;
+package me.Cobra_8.gifts;
 
 import org.bukkit.entity.Player;
 
@@ -9,13 +9,19 @@ import org.bukkit.entity.Player;
 public abstract class Gift {
 
     private Player player;
+    private GiftType type;
 
     public Gift(Player player) {
         this.player = player;
+        this.type = type;
     }
 
     public Player getPlayer() {
-        return player;
+        return this.player;
+    }
+
+    public GiftType getType() {
+        return this.type;
     }
 
     public abstract void executeGift();

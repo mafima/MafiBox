@@ -1,8 +1,8 @@
-package mafiBox.listener;
+package me.Cobra_8.listener;
 
 import java.util.ArrayList;
 import java.util.List;
-import mafiBox.MafiBox;
+import me.Cobra_8.MafiBox;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;

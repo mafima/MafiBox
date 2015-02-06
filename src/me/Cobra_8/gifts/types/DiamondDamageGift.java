@@ -1,8 +1,9 @@
-package mafiBox.gifts;
+package me.Cobra_8.gifts.types;
 
 import java.util.ArrayList;
 import java.util.List;
-import mafiBox.MafiBox;
+import me.Cobra_8.MafiBox;
+import me.Cobra_8.gifts.Gift;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -22,20 +23,22 @@ public class DiamondDamageGift extends Gift {
     @Override
     public void executeGift() {
         List<Material> protections = new ArrayList<>();
-        protections.add(Material.DIAMOND_SWORD);
+        protections.add(Material.DIAMOND_AXE);
         protections.add(Material.DIAMOND_HOE);
         protections.add(Material.DIAMOND_SPADE);
         protections.add(Material.DIAMOND_SWORD);
 
-        ItemStack gift = new ItemStack(protections.get(MafiBox.random.nextInt(protections.size())));
-        ItemMeta giftMeta = gift.getItemMeta();
-        giftMeta.setDisplayName(MafiBox.boxprefix);
-        gift.addEnchantment(Enchantment.DAMAGE_ALL, 1);
-        gift.setItemMeta(giftMeta);
+        ItemStack stack = new ItemStack(protections.get(MafiBox.random.nextInt(protections.size())));
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(MafiBox.itemprefix);
+        meta.setLore(MafiBox.itemlore);
+        stack.addEnchantment(Enchantment.DAMAGE_ALL, 1);
+        stack.setItemMeta(meta);
 
-        getPlayer().getInventory().addItem(gift);
+        getPlayer().getInventory().addItem(stack);
+        getPlayer().updateInventory();
 
-        getPlayer().sendMessage(MafiBox.prefix + "§6Du hast eine Diamantwaffe erhalten !");
+        getPlayer().sendMessage(MafiBox.prefix + "§6Du hast eine Diamantwaffe gewonnen !");
 
     }
 
